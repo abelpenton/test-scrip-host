@@ -20,7 +20,7 @@ window.dragMoveListener = dragMoveListener
 document.addEventListener('click', function(event) {
     const clickedElement = event.target;
 
-    if (!clickedElement.classList.contains('jsRpLabel')) {
+    if (!clickedElement.classList.includes(['jsRpLabel', 'yes', 'no'])) {
         event.stopPropagation();
         event.preventDefault();
     }
