@@ -10,7 +10,7 @@ function dragMoveListener (event) {
     const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
     const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
 
-    target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+    target.style.transform = `translate(${x}px, ${y}px)`
     target.setAttribute('data-x', x)
     target.setAttribute('data-y', y)
 }
@@ -33,7 +33,7 @@ function addInteractFromSelector(selector) {
 
     interact(selector)
         .resizable({
-            edges: { left: true, right: true, top: selector !== '#pgr-payment-container', bottom: selector != '#pgr-payment-container'},
+            edges: { left: true, right: true, top: selector !== '#pgr-payment-container', bottom: selector !== '#pgr-payment-container'},
 
             listeners: {
                 move (event) {
