@@ -33,7 +33,7 @@ function addInteractFromSelector(selector) {
 
     interact(selector)
         .resizable({
-            edges: { left: true, right: true},
+            edges: { left: true, right: true, top: selector !== '#pgr-payment-container', bottom: selector != '#pgr-payment-container'},
 
             listeners: {
                 move (event) {
