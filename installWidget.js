@@ -24,4 +24,4 @@
 
         P._pgr('action', 'updateQuoteData', {...data})
     })
-}(window, document, 'script', '_pgr', './widget.js'));
+}(window, document, 'script', '_pgr', 'https://cdn.jsdelivr.net/gh/abelpenton/test-scrip-host@main/widget.js'));
