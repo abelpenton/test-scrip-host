@@ -5,6 +5,12 @@
     T.parentNode.insertBefore(C, T);   
 }(window, document, 'script', '_pgr', 'https://cdn.jsdelivr.net/gh/abelpenton/test-scrip-host@main/widget.js'));
 
+const data = {
+    totalValue: 100,
+    numberOfTickets: 1,
+    eventTravelDateTime: '31/12/2024'
+}
+
 window._pgr('init', {
     environment: 'test',
     debug: true,
@@ -17,11 +23,11 @@ window._pgr('init', {
 })
 
 document.addEventListener('PgWidgetLoaded', function() {
-    const data = {
-        totalValue: 100,
-        numberOfTickets: 1,
-        eventTravelDateTime: '31/12/2024'
-    }
-
     window._pgr('action', 'updateQuoteData', {...data})
+})
+
+document.addEventListener('LanguageCodeChange', function(arg) {
+    const {languageCode} = arg
+    console.log(`Language Code Changed: ${languageCode}`)
+    window._pgr('action', 'updateQuoteData', {...data, languageCode})
 })
