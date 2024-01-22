@@ -31,3 +31,9 @@ document.addEventListener('LanguageCodeChange', function(arg) {
     console.log(`Language Code Changed: ${languageCode}`)
     window._pgr('action', 'updateQuoteData', {...data, languageCode})
 })
+
+document.addEventListener('VerticalChange', function(arg) {
+    const {detail: {vertical}} = arg
+    console.log(`Vertical Changed: ${vertical}`)
+    window._pgr('action', 'updateQuoteData', {...data, vertical})
+})
