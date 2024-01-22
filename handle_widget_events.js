@@ -27,7 +27,7 @@ document.addEventListener('PgWidgetLoaded', function() {
 })
 
 document.addEventListener('LanguageCodeChange', function(arg) {
-    const {languageCode} = arg
+    const {detail: {languageCode}} = arg
     console.log(`Language Code Changed: ${languageCode}`)
     window._pgr('action', 'updateQuoteData', {...data, languageCode})
 })
