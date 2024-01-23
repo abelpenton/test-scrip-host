@@ -5,7 +5,7 @@
     T.parentNode.insertBefore(C, T);   
 }(window, document, 'script', '_pgr', 'https://cdn.jsdelivr.net/gh/abelpenton/test-scrip-host@main/widget.js'));
 
-const data = {
+let data = {
     totalValue: 100,
     numberOfTickets: 1,
     eventTravelDateTime: '31/12/2024'
@@ -29,6 +29,7 @@ document.addEventListener('PgWidgetLoaded', function() {
 document.addEventListener('LanguageCodeChange', function(arg) {
     const {detail: {languageCode}} = arg
     console.log(`Language Code Changed: ${languageCode}`)
+    data = {...data, languageCode}
     window._pgr('action', 'updateQuoteData', {...data, languageCode})
 })
 
@@ -41,5 +42,13 @@ document.addEventListener('VerticalChange', function(arg) {
 document.addEventListener('BookingCostChange', function(arg) {
     const {detail: {bookingCost}} = arg
     console.log(`Booking Cost Changed: ${bookingCost}`)
+    data = {...data, totalValue: bookingCost}
     window._pgr('action', 'updateQuoteData', {...data, totalValue: bookingCost})
+})
+
+document.addEventListener('EventDateChange', function(arg) {
+    const {detail: {eventDate}} = arg
+    console.log(`Event Date Changed: ${eventDate}`)
+    data = {...data, eventTravelDateTime: eventDate}    
+    window._pgr('action', 'updateQuoteData', {...data, eventTravelDateTime: eventDate})
 })
