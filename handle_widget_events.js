@@ -37,3 +37,9 @@ document.addEventListener('VerticalChange', function(arg) {
     console.log(`Vertical Changed: ${vertical}`)
     window._pgr('action', 'updateQuoteData', {...data, vertical})
 })
+
+document.addEventListener('BookingCostChange', function(arg) {
+    const {detail: {bookingCost}} = arg
+    console.log(`Booking Cost Changed: ${bookingCost}`)
+    window._pgr('action', 'updateQuoteData', {...data, totalValue: bookingCost})
+})
