@@ -11,6 +11,8 @@ const data = {
     eventTravelDateTime: '31/12/2024'
 }
 
+window._pgr('destroy')
+
 window._pgr('init', {
     environment: 'test',
     debug: true,
