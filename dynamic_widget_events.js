@@ -30,25 +30,33 @@ document.addEventListener('LanguageCodeChange', function(arg) {
     const {detail: {languageCode}} = arg
     console.log(`Language Code Changed: ${languageCode}`)
     data = {...data, languageCode}
-    window._pgr('action', 'updateQuoteData', {...data, languageCode})
-})
-
-document.addEventListener('VerticalChange', function(arg) {
-    const {detail: {vertical}} = arg
-    console.log(`Vertical Changed: ${vertical}`)
-    window._pgr('action', 'updateQuoteData', {...data, vertical})
+    window._pgr('action', 'updateQuoteData', {...data})
 })
 
 document.addEventListener('BookingCostChange', function(arg) {
     const {detail: {bookingCost}} = arg
     console.log(`Booking Cost Changed: ${bookingCost}`)
     data = {...data, totalValue: bookingCost}
-    window._pgr('action', 'updateQuoteData', {...data, totalValue: bookingCost})
+    window._pgr('action', 'updateQuoteData', {...data})
 })
 
 document.addEventListener('EventDateChange', function(arg) {
     const {detail: {eventDate}} = arg
     console.log(`Event Date Changed: ${eventDate}`)
     data = {...data, eventTravelDateTime: eventDate}    
-    window._pgr('action', 'updateQuoteData', {...data, eventTravelDateTime: eventDate})
+    window._pgr('action', 'updateQuoteData', {...data})
+})
+
+document.addEventListener('VerticalChange', function(arg) {
+    const {detail: {verticalMember}} = arg
+    console.log(`Vertical Changed: ${verticalMember}`)
+    data = {...data, member: verticalMember}    
+    window._pgr('action', 'updateQuoteData', {...data})
+})
+
+document.addEventListener('CurrencyChange', function(arg) {
+    const {detail: {currency}} = arg
+    console.log(`Currency Changed: ${currency}`)
+    data = {...data, currencyCode: currency}    
+    window._pgr('action', 'updateQuoteData', {...data})
 })
