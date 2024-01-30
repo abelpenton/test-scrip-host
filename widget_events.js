@@ -19,7 +19,6 @@ window._pgr('init', {
     languageCode: 'en',
     eventDateFormat: 'DD/MM/YYYY',
     useSaleAction: true,
-    displayTrustPilot: false,
     // optional, set this to false if you intend to call our sale endpoint manually
 })
 
@@ -59,12 +58,5 @@ document.addEventListener('CurrencyChange', function(arg) {
     const {detail: {currency}} = arg
     console.log(`Currency Changed: ${currency}`)
     data = {...data, currencyCode: currency}    
-    window._pgr('action', 'updateQuoteData', {...data})
-})
-
-document.addEventListener('TrustPilotChange', function(arg) {
-    const {detail: {displayTrustPilot}} = arg
-    console.log(`Trust Pilot Changed: ${displayTrustPilot}`)
-    data = {...data, displayTrustPilot: displayTrustPilot === 'true'}    
     window._pgr('action', 'updateQuoteData', {...data})
 })
