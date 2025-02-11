@@ -8,7 +8,7 @@
 let data = {
     totalValue: 100,
     numberOfTickets: 1,
-    eventTravelDateTime: '31/12/2024'
+    eventTravelDateTime: new Date('2025-12-31')
 }
 
 window._pgr('init', {
@@ -17,7 +17,7 @@ window._pgr('init', {
     vendorCode: 'ven_local_6ba3e093c67c428b90670440441469a2',
     currencyCode: 'USD',
     languageCode: 'en',
-    eventDateFormat: 'DD/MM/YYYY',
+    eventDateFormat: 'yyyy-MM-ddTHH:mm:ss:FFFFFzzz',
     useSaleAction: true,
     // optional, set this to false if you intend to call our sale endpoint manually
 })
@@ -43,7 +43,7 @@ document.addEventListener('BookingCostChange', function(arg) {
 document.addEventListener('EventDateChange', function(arg) {
     const {detail: {eventDate}} = arg
     console.log(`Event Date Changed: ${eventDate}`)
-    data = {...data, eventTravelDateTime: eventDate}    
+    data = {...data, eventTravelDateTime: new Date(eventDate)}    
     window._pgr('action', 'updateQuoteData', {...data})
 })
 
