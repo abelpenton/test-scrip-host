@@ -3,7 +3,7 @@
     C = R.createElement(O), T = R.getElementsByTagName(O)[0];
     C.id = t; C.src = E;
     T.parentNode.insertBefore(C, T);   
-}(window, document, 'script', '_pgr', 'https://cdn.jsdelivr.net/gh/abelpenton/test-scrip-host@main/widget.js'));
+}(window, document, 'script', '_pgr', 'https://cdn.jsdelivr.net/gh/abelpenton/test-scrip-host@main/pulse-widget.js'));
 
 let data = {
     totalValue: 100,
@@ -18,7 +18,6 @@ window._pgr('init', {
     currencyCode: 'USD',
     languageCode: 'en',
     eventDateFormat: 'yyyy-MM-ddTHH:mm:ss:FFFFFzzz',
-    useSaleAction: true,
     resetOnUnload: false, // Reset the widget when the page is unloaded (set to true to enable auto-reset)
     useSaleAction: false, // Optional, set this to false if you intend to call our sale endpoint manually
 })
