@@ -8,7 +8,7 @@
 let data = {
     totalValue: 100,
     numberOfTickets: 1,
-    eventTravelDateTime: new Date('2025-12-31')
+    eventTravelDateTime: new Date(new Date().setMonth(new Date().getMonth() + 1))
 }
 
 window._pgr('init', {
@@ -19,10 +19,11 @@ window._pgr('init', {
     languageCode: 'en',
     eventDateFormat: 'yyyy-MM-ddTHH:mm:ss:FFFFFzzz',
     useSaleAction: true,
-    // optional, set this to false if you intend to call our sale endpoint manually
+    resetOnUnload: false, // Reset the widget when the page is unloaded (set to true to enable auto-reset)
+    useSaleAction: false, // Optional, set this to false if you intend to call our sale endpoint manually
 })
 
-document.addEventListener('PgWidgetLoaded', function() {
+document.addEventListener('pg-widget-loaded', function() {
     window._pgr('action', 'updateQuoteData', {...data})
 })
 
@@ -58,5 +59,12 @@ document.addEventListener('CurrencyChange', function(arg) {
     const {detail: {currency}} = arg
     console.log(`Currency Changed: ${currency}`)
     data = {...data, currencyCode: currency}    
+    window._pgr('action', 'updateQuoteData', {...data})
+})
+
+document.addEventListener('ProductChange', function(arg) {
+    const {detail: {product}} = arg
+    console.log(`Product Change: ${product}`)
+    data = {...data, vendorCode: product}
     window._pgr('action', 'updateQuoteData', {...data})
 })
