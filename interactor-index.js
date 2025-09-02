@@ -67,3 +67,4 @@ document.addEventListener('dblclick', function(event) {
 }, true);
 
 addInteractFromSelector('#pgr-payment-container')
+addInteractFromSelector('#pgr-product-container')
