@@ -8,6 +8,18 @@
 let data = {
     totalValue: 100,
     numberOfTickets: 1,
+    arrivalAirportCode: "LHR",
+    departureAirportCode: "MVD",
+    flights: [
+        {
+            arrivalCode: "LHR",
+            class: "FIRST",
+            departureCode: "MVD",
+            departureDate: new Date(new Date().setHours(new Date().getHours() + 2)),
+            flightNumber: "BA123",
+            terminal: "Terminal 1"
+        }
+    ],
     eventTravelDateTime: new Date(new Date().setMonth(new Date().getMonth() + 1))
 }
 
@@ -64,6 +76,6 @@ document.addEventListener('CurrencyChange', function(arg) {
 document.addEventListener('ProductChange', function(arg) {
     const {detail: {product}} = arg
     console.log(`Product Change: ${product}`)
-    data = {...data, vendorCode: product}
+    data = {...data, member: product}
     window._pgr('action', 'updateQuoteData', {...data})
 })
