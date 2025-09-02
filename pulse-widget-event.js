@@ -9,12 +9,12 @@ let data = {
     totalValue: 100,
     numberOfTickets: 1,
     arrivalAirportCode: "LHR",
-    departureAirportCode: "MVD",
+    departureAirportCode: "BCN",
     flights: [
         {
             arrivalCode: "LHR",
             class: "FIRST",
-            departureCode: "MVD",
+            departureCode: "BCN",
             departureDate: new Date(new Date().setHours(new Date().getHours() + 2)),
             flightNumber: "BA123",
             terminal: "Terminal 1"
